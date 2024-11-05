@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { SpinnerCircularFixed } from 'spinners-react';
 import Select from 'react-select';
 import Toggle from 'react-toggle';
+import { ToastContainer, toast } from 'react-toastify';
+import { toast_style } from './style';
 
 import check from './assets/img/check.svg';
 import key from './assets/img/key.svg';
 import Checkbox from './helpers/Checkbox';
+import Button from './helpers/Button';
 
 function App() {
   const colourOptions = [{ 'value': 'ocean', 'label': 'Ocean', 'color': '#00B8D9', 'isFixed': true }, { 'value': 'blue', 'label': 'Blue', 'color': '#0052CC', 'isDisabled': true }, { 'value': 'purple', 'label': 'Purple', 'color': '#5243AA' }, { 'value': 'red', 'label': 'Red', 'color': '#FF5630', 'isFixed': true }, { 'value': 'orange', 'label': 'Orange', 'color': '#FF8B00' }, { 'value': 'yellow', 'label': 'Yellow', 'color': '#FFC400' }, { 'value': 'green', 'label': 'Green', 'color': '#36B37E' }, { 'value': 'forest', 'label': 'Forest', 'color': '#00875A' }, { 'value': 'slate', 'label': 'Slate', 'color': '#253858' }, { 'value': 'silver', 'label': 'Silver', 'color': '#666666' }];
@@ -14,9 +17,16 @@ function App() {
     setSearchValue(event.target.value);
   }
 
+  const handleTriggerToast = () => {
+    toast.error('Pas content', toast_style);
+    toast.info('DEV_MODE', toast_style);
+    toast.success('DEV_MODE', toast_style);
+  }
+
   const [searchValue, setSearchValue] = useState('');
 
   return <div className='block'>
+    <ToastContainer />
     <h2 className='left'>Elements de formulaire</h2>
     <h4 className='left'>Select</h4>
     <Select
@@ -55,17 +65,9 @@ function App() {
     />
     <input
       autoFocus
-      className='left search'
+      className='left red'
       onChange={handleOnChangeSearch}
-      placeholder='Recherche !! MARCHE PAS !!'
-      type='text'
-      value={searchValue}
-    />
-    <input
-      autoFocus
-      className='left blue search'
-      onChange={handleOnChangeSearch}
-      placeholder='Recherche blue !! MARCHE PAS !!'
+      placeholder='Recherche red'
       type='text'
       value={searchValue}
     />
@@ -106,6 +108,38 @@ function App() {
     </div>
 
     <h2 className='left'>Bouttons</h2>
+
+    <Button
+      className='blue'
+      label='Toast'
+      onClick={handleTriggerToast}
+
+      textColor='#ffffff'
+    />
+    <Button
+      className='fluent'
+      label='Obtenir le code'
+      isLoading={true}
+      loadingLabel='Chargement en cours...'
+
+      textColor='#000000'
+    />
+    <Button
+      className='fluent'
+      label='Obtenir le code'
+      isLoading={true}
+      loadingLabel='Chargement en cours...'
+      easter={true}
+      textColor='#000000'
+    />
+    <Button
+      className='red'
+      isLoading={true}
+      label='Obtenir le code'
+
+      textColor='#ffffff'
+    />
+
     <h4 className='left'>Classic</h4>
 
     <button className='blue' type='submit'>
@@ -153,23 +187,23 @@ function App() {
 
     <h4 className='left'>Fluent</h4>
 
-    <button className='fluent_btn is-inline-flex left'>
+    <button className='fluent is-inline-flex left'>
       <img className='svg' src={key} />
       <span>Ajouter une information</span>
     </button>
-    <button className='fluent_btn is-inline-flex right'>
+    <button className='fluent is-inline-flex right'>
       <img className='svg' src={key} />
       <span>Ajouter une information</span>
     </button>
-    <button className='fluent_btn is-inline-flex'>
+    <button className='fluent is-inline-flex'>
       <img className='svg' src={key} />
       <span>Ajouter une information</span>
     </button>
-    <button className='fluent_btn is-inline-flex left'>
+    <button className='fluent is-inline-flex left'>
       <SpinnerCircularFixed color='#ffffff' secondaryColor='transparent' size={25} speed={100} thickness={150} />
       <span>Ajouter une information</span>
     </button>
-    <button className='fluent_btn is-inline-flex'>
+    <button className='fluent is-inline-flex'>
       <SpinnerCircularFixed color='#2674c6' secondaryColor='transparent' size={20} speed={100} thickness={200} />
       <span>Ajouter une information</span>
     </button>
@@ -179,41 +213,6 @@ function App() {
       </span>
     </button>
     <br />
-    <h4 className='left'>Mini</h4>
-
-    <a className='mini_btn' href='http://discord.beta.hackernwar.com'>
-      <img className='svg' src='https://beta.hackernwar.com/assets/img/discord.svg' />
-    </a>
-    <a className='mini_btn red' href='http://discord.beta.hackernwar.com'>
-      <img className='svg_white' src='https://beta.hackernwar.com/assets/img/discord.svg' />
-    </a>
-    <a className='mini_btn blue' href='http://discord.beta.hackernwar.com'>
-      <img className='svg_white' src='https://beta.hackernwar.com/assets/img/discord.svg' />
-    </a>
-    <a className='mini_btn green' href='http://discord.beta.hackernwar.com'>
-      <img className='svg_white' src='https://beta.hackernwar.com/assets/img/discord.svg' />
-    </a>
-    <a className='mini_btn orange' href='http://discord.beta.hackernwar.com'>
-      <img className='svg_white' src='https://beta.hackernwar.com/assets/img/discord.svg' />
-    </a>
-
-    <button className='mini_btn'>
-      <img className='svg' src='https://beta.hackernwar.com/assets/img/discord.svg' />
-    </button>
-
-    <button className='mini_btn red'>
-      <img className='svg_white' src='https://beta.hackernwar.com/assets/img/discord.svg' />
-    </button>
-    <button className='mini_btn blue'>
-      <img className='svg_white' src='https://beta.hackernwar.com/assets/img/discord.svg' />
-    </button>
-    <button className='mini_btn green'>
-      <img className='svg_white' src='https://beta.hackernwar.com/assets/img/discord.svg' />
-    </button>
-    <button className='mini_btn orange'>
-      <img className='svg_white' src='https://beta.hackernwar.com/assets/img/discord.svg' />
-    </button>
-
     <h2 className='left'>Block</h2>
     <h4 className='left'>In-Line</h4>
 

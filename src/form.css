@@ -58,54 +58,46 @@ button.active:not(.red, .blue, .green, .orange, .transparent):hover {
 
 /* --- Button color --- */
 button.red,
-a.btn.red,
-.mini_btn.red {
+a.btn.red {
 	background-color: var(--red-primary);
 	color: #fff;
 }
 
 button.red:hover,
-a.btn.red:hover,
-.mini_btn.red:hover {
+a.btn.red:hover {
 	background-color: var(--red-secondary);
 }
 
 button.blue,
-a.btn.blue,
-.mini_btn.blue {
+a.btn.blue {
 	background-color: var(--blue-primary);
 	color: #fff;
 }
 
 button.blue:hover,
-a.btn.blue:hover,
-.mini_btn.blue:hover {
+a.btn.blue:hover {
 	background-color: var(--blue-secondary);
 }
 
 button.green,
-a.btn.green,
-.mini_btn.green {
+a.btn.green {
 	background-color: var(--green-primary);
 	color: #fff;
 }
 
 button.green:hover,
-a.btn.green:hover,
-.mini_btn.green:hover {
+a.btn.green:hover {
 	background-color: var(--green-secondary);
 }
 
 button.orange,
-a.btn.orange,
-.mini_btn.orange {
+a.btn.orange {
 	background-color: var(--orange-primary);
 	color: #fff;
 }
 
 button.orange:hover,
-a.btn.orange:hover,
-.mini_btn.orange:hover {
+a.btn.orange:hover {
 	background-color: var(--orange-secondary);
 }
 
@@ -129,8 +121,7 @@ a.btn {
 }
 
 button:active,
-a.btn:active,
-.mini_btn:active {
+a.btn:active {
 	transform: translateY(3%);
 }
 
@@ -156,49 +147,25 @@ a.btn.right {
 
 button img,
 a.btn img {
-	max-width: 30px;
+	width: 30px;
 }
 
 button .check {
 	width: 20px;
 }
 
-button.fluent_btn span,
-a.btn.fluent_btn span {
+button.fluent span,
+a.btn.fluent span {
 	opacity: 0.5;
 	transition: opacity .5s
 }
 
-button.fluent_btn:hover span,
-a.btn.fluent_btn:hover span {
+button.fluent:hover span,
+a.btn.fluent:hover span {
 	opacity: 1;
 }
 
-/* --- Mini button --- */
-.mini_btn {
-	border: 2px solid #4f474e00;
-	margin-bottom: 1px;
-	border-radius: 5px;
-	padding: 5px;
-	width: 42px;
-	height: 42px;
-	display: inline-flex;
-	box-sizing: border-box;
-	justify-content: center;
-	align-items: center;
-}
 
-.mini_btn img {
-	max-width: 25px;
-	max-height: 25px;
-}
-
-.mini_btn:hover,
-.mini_btn:active,
-.mini_btn:focus {
-	background-color: var(--button-back-secondary);
-	border: 2px solid #4f474e61;
-}
 
 /* --- Input --- */
 input.red:hover,
@@ -247,10 +214,6 @@ form {
 	position: relative;
 	text-align: center;
 	z-index: 1;
-}
-
-.fluent_form {
-	margin-left: 45px;
 }
 
 /* --- Input --- */
@@ -514,4 +477,13 @@ input[type="file"] {
 .checkbok-container input:disabled~.checkmark {
 	background-color: #606060 !important;
 	cursor: not-allowed !important;
+}
+
+
+/* --- Toast --- */
+.Toastify__close-button,
+.Toastify__close-button:hover {
+	max-width: 20px;
+	max-height: 20px;
+	border: 2px solid #ffffff00 !important;
 }
